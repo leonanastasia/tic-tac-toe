@@ -23,9 +23,17 @@ body {
     width: 50px;
     border: 1px solid;
 }
-.game-cell.cross{
-    background: blue;
+.game-cell.cross:after {
+    content:'X';
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
 }
-.game-cell.zero{
-    background: red;
+.game-cell.zero:after {
+    content:'o';
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
 }
