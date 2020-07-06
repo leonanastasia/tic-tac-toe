@@ -7,8 +7,12 @@ let cellsValues = [0,0,0,0,0,0,0,0,0];
 const button = document.querySelector("button");
 
 const makeMove = function(e){
+    if(checkWin()){
+        return
+    }
     const currentCellIndex = e.target.classList[1].split('').reverse()[0] - 1;
     console.log(currentCellIndex);
+    if(cellsValues[currentCellIndex] !== 0){return}
     cells[currentCellIndex].classList.toggle(currentPlayer);
     cellsValues[currentCellIndex]=currentPlayer;
     if(checkWin()){
@@ -61,7 +65,8 @@ const restart = function() {
     for(var i = 0; i < cells.length; i++){
         cells[i].classList.remove("cross");
         cells[i].classList.remove("zero");
-    }
+        }
+    cellsValues = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         currentPlayer = player1;
         playerTurnTitle.innerHTML="Player's 1 turn!"
 
