@@ -3,7 +3,8 @@ const player2 = "zero";
 let currentPlayer = player1
 const playerTurnTitle = document.querySelector(".player-turn")
 const cells = document.querySelectorAll(".game-cell");
-const cellsValues = [0,0,0,0,0,0,0,0,0];
+let cellsValues = [0,0,0,0,0,0,0,0,0];
+const button = document.querySelector("button");
 
 const makeMove = function(e){
     const currentCellIndex = e.target.classList[1].split('').reverse()[0] - 1;
@@ -56,3 +57,13 @@ const checkWin = function(){
         return true
     }else return false
 }
+const restart = function() {
+    for(var i = 0; i < cells.length; i++){
+        cells[i].classList.remove("cross");
+        cells[i].classList.remove("zero");
+    }
+        currentPlayer = player1;
+        playerTurnTitle.innerHTML="Player's 1 turn!"
+
+}
+button.addEventListener("click", restart)
